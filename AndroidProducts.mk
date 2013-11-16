@@ -15,5 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_deb.mk \
+    $(LOCAL_DIR)/iokp_deb.mk \
     $(LOCAL_DIR)/full_deb.mk

@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-$(call inherit-product, device/asus/deb/aosp_deb.mk)
+$(call inherit-product, device/asus/deb/iokp_deb.mk)
 
 PRODUCT_NAME := full_deb
 
