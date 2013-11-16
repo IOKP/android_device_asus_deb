@@ -13,38 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+$(call inherit-product, device/asus/deb/aosp_deb.mk)
 
-# rild
-PRODUCT_PACKAGES := \
-    rild \
-    BasicSmsReceiver
+PRODUCT_NAME := full_deb
 
-PRODUCT_COPY_FILES := \
-    device/asus/deb/fstab.deb:root/fstab.flo \
-    device/asus/deb/init.deb.rc:root/init.flo.rc
-
-PRODUCT_PACKAGES += \
-	camera.deb
-
-#NFC
-PRODUCT_PACKAGES += \
-    nfc_nci.deb
-
-# Do not power down SIM card when modem is sent to Low Power Mode.
-PRODUCT_PROPERTY_OVERRIDES += \
-        persist.radio.apm_sim_not_pwdn=1
-
-#Stop rild if non 3G SKU
-PRODUCT_PACKAGES += \
-        init.qcom.class_main.sh
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-        rild.libpath=/system/lib/libril-qc-qmi-1.so
-
-# the actual meat of the device-specific product definition
-$(call inherit-product, device/asus/flo/device-common.mk)
-
-# inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, vendor/asus/deb/deb-vendor.mk)
-
-DEVICE_PACKAGE_OVERLAYS := device/asus/deb/overlay
